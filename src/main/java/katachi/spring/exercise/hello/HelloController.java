@@ -23,7 +23,7 @@ public class HelloController {
 	
 	// EX3.
 	@GetMapping("/input")
-	public String getInput(@RequestParam("name") String str, Model model) {
+	public String getInput(@RequestParam(name = "name", required = false) String str, Model model) {
 		
 		model.addAttribute("name", str);
 		
