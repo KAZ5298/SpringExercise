@@ -6,6 +6,27 @@
 	</head>
 	<body>
 		<h1>profile.html</h1>
-		<p th:text="${name}"></p>
+		<!-- EX4. -->
+<!--		<p th:text="${name}"></p>-->
+		
+		<!-- EX5. -->
+		<div class="form-group">
+			<p th:text="名前： + ${name}"></p>
+		</div>
+		<div class="form-group">
+			<p th:text="誕生日： + ${#dates.format(birthday, 'YYYY/MM/dd')}"></p>
+		</div>
+		<div class="form-group">
+			<p th:text="性別： + ${gender}"></p>
+		</div>
+		<div class="form-group">
+			<p th:text="血液型： + ${bloodtype}"></p>
+		</div>
+		<div class="form-group">
+			<p th:text="学習内容： + ${study}"></p>
+		</div>
+		<div class="form-group">
+			<p th:text="備考： + ${remarks}"></p>
+		</div>
 	</body>
 </html>
