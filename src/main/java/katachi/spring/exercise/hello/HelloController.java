@@ -42,13 +42,13 @@ public class HelloController {
 //	}
 	
 	// EX4.
-	@PostMapping("/input")
-	public String postProfile(@RequestParam("name") String str, Model model) {
-		
-		model.addAttribute("name", str);
-		
-		return "/profile";
-	}
+//	@PostMapping("/input")
+//	public String postProfile(@RequestParam("name") String str, Model model) {
+//		
+//		model.addAttribute("name", str);
+//		
+//		return "/profile";
+//	}
 	
 	// EX5.
 	@Autowired
@@ -71,10 +71,10 @@ public class HelloController {
 		return "/input";
 	}
 	
-	@PostMapping("/profile")
-	public String requestProfile(@ModelAttribute ProfileForm form) {
+	@PostMapping("/input")
+	public String requestProfile(@ModelAttribute ProfileForm profileform, Model model) {
 		
-		log.info(form.toString());
+		log.info(profileform.toString());
 		
 		return "/profile";
 	}
