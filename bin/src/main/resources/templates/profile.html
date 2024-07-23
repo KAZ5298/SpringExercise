@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>profile.html</h1>
+		<!-- EX4. -->
+<!--		<p th:text="${name}"></p>-->
+		
+		<!-- EX5. -->
+		<div class="form-group">
+			<p th:text="名前： + ${profileForm.name}"></p>
+		</div>
+<!--		<div class="form-group">-->
+<!--			<p th:text="誕生日： + ${#dates.format(profileForm.birthday, 'YYYY/MM/dd')}"></p>-->
+<!--		</div>-->
+		<div class="form-group">
+			<div th:switch="${profileForm.gender}">
+				<p th:case="1" th:text="性別：男性"></p>
+				<p th:case="2" th:text="性別：女性"></p>
+				<p th:case="3" th:text="性別：その他"></p>
+			</div>
+		</div>>
+		<div class="form-group">
+			<p th:text="血液型： + ${profileForm.bloodtype}"></p>
+		</div>
+		<div class="form-group">
+			<p th:text="学習内容： + ${profileForm.study}"></p>
+		</div>
+		<div class="form-group">
+			<p th:text="備考： + ${profileForm.remarks}"></p>
+		</div>
+	</body>
+</html>
