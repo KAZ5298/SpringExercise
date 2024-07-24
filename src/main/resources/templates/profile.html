@@ -13,9 +13,9 @@
 		<div class="form-group">
 			<p th:text="名前： + ${profileForm.name}"></p>
 		</div>
-<!--		<div class="form-group">-->
-<!--			<p th:text="誕生日： + ${#dates.format(profileForm.birthday, 'YYYY/MM/dd')}"></p>-->
-<!--		</div>-->
+		<div class="form-group">
+			<p th:text="誕生日： + ${#dates.format(profileForm.birthday, 'YYYY/MM/dd')}"></p>
+		</div>
 		<div class="form-group">
 			<div th:switch="${profileForm.gender}">
 				<p th:case="1" th:text="性別：男性"></p>
