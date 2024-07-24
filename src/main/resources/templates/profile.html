@@ -22,9 +22,16 @@
 				<p th:case="2" th:text="性別：女性"></p>
 				<p th:case="3" th:text="性別：その他"></p>
 			</div>
-		</div>>
+		</div>
 		<div class="form-group">
-			<p th:text="血液型： + ${profileForm.bloodtype}"></p>
+<!--			<p th:text="血液型： + ${profileForm.bloodtype}"></p>-->
+			<div th:switch="${profileForm.bloodtype}">
+				<p th:case="1" th:text="血液型：Ａ型"></p>
+				<p th:case="2" th:text="血液型：Ｂ型"></p>
+				<p th:case="3" th:text="血液型：Ｏ型"></p>
+				<p th:case="4" th:text="血液型：ＡＢ型"></p>
+				<p th:case="5" th:text="血液型：不明"></p>
+			</div>
 		</div>
 		<div class="form-group">
 			<p th:text="学習内容： + ${profileForm.study}"></p>
