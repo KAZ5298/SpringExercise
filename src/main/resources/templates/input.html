@@ -16,10 +16,10 @@
 				<label for="name">名前の入力欄：</label>
 				<input type="text" name="name" th:value="${name}" class="form-check-inline">
 			</div>
-<!--			<div class="form-group">-->
-<!--				<label for="birthday">誕生日：</label>-->
-<!--				<input type="date" name="birthday" class="form-check-inline"/>-->
-<!--			</div>-->
+			<div class="form-group">
+				<label for="birthday">誕生日：</label>
+				<input type="date" name="birthday" class="form-check-inline"/>
+			</div>
 			<div class="form-group">
 				<label for="gender">性別：</label>
 				<div th:each="item : ${genderMap}" class="form-check-inline">
@@ -36,11 +36,9 @@
 			</div>
 			<div class="form-group">
 				<label for="study">学習内容：</label>
-				<div th:each="item : ${studyMap}" class="form-check-inline">
-					<input type="checkbox" th:value="${item.value}" name="study" />
-					<label class="form-check-label" th:text="${item.key}"></label>
+				<div th:each="item : ${studyMap}">
+					<input type="checkbox" name="study" th:value="${item.key}" th:text="${item.value}" />
 				</div>
-				
 			</div>
 			<div class="form-group">
 				<label for="remarks">備考：</label>

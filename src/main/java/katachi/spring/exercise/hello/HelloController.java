@@ -61,7 +61,7 @@ public class HelloController {
 		Map<String, Integer> bloodtypeMap = userApplicationService.getBloodtypeMap();
 		model.addAttribute("bloodtypeMap", bloodtypeMap);
 		
-		Map<String, Integer> studyMap = userApplicationService.getStudyMap();
+		Map<String, String> studyMap = userApplicationService.getStudyMap();
 		model.addAttribute("studyMap", studyMap);
 		
 		model.addAttribute("name", str);

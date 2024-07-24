@@ -30,13 +30,13 @@ public class UserApplicationService {
 	}
 	
 	// 学習内容
-	public Map<String, Integer> getStudyMap() {
-		Map<String, Integer> studyMap = new LinkedHashMap<>();
-		studyMap.put("Java", 1);
-		studyMap.put("PHP", 2);
-		studyMap.put("HTML", 3);
-		studyMap.put("デザイン", 4);
-		studyMap.put("その他", 5);
+	public Map<String, String> getStudyMap() {
+		Map<String, String> studyMap = new LinkedHashMap<>();
+		studyMap.put("Java", "Java");
+		studyMap.put("PHP", "PHP");
+		studyMap.put("HTML", "HTML");
+		studyMap.put("デザイン", "デザイン");
+		studyMap.put("その他", "その他");
 		return studyMap;
 	}
 	

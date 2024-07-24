@@ -13,24 +13,45 @@
 		<div class="form-group">
 			<p th:text="名前： + ${profileForm.name}"></p>
 		</div>
-<!--		<div class="form-group">-->
-<!--			<p th:text="誕生日： + ${#dates.format(profileForm.birthday, 'YYYY/MM/dd')}"></p>-->
-<!--		</div>-->
+		<div class="form-group">
+			<p th:text="誕生日： + ${#dates.format(profileForm.birthday, 'YYYY/MM/dd')}"></p>
+		</div>
 		<div class="form-group">
 			<div th:switch="${profileForm.gender}">
 				<p th:case="1" th:text="性別：男性"></p>
 				<p th:case="2" th:text="性別：女性"></p>
 				<p th:case="3" th:text="性別：その他"></p>
 			</div>
+<<<<<<< HEAD
 		</div>
 		<div class="form-group">
 			<p th:text="血液型： + ${profileForm.bloodtype}"></p>
+=======
+>>>>>>> faaf6ba4c2e1125ae974378d227f1bd40f14e553
 		</div>
 		<div class="form-group">
-			<p th:text="学習内容： + ${profileForm.study}"></p>
+			<div th:switch="${profileForm.bloodtype}">
+				<p th:case="1" th:text="血液型：Ａ型"></p>
+				<p th:case="2" th:text="血液型：Ｂ型"></p>
+				<p th:case="3" th:text="血液型：Ｏ型"></p>
+				<p th:case="4" th:text="血液型：ＡＢ型"></p>
+				<p th:case="5" th:text="血液型：不明"></p>
+			</div>
 		</div>
 		<div class="form-group">
-			<p th:text="備考： + ${profileForm.remarks}"></p>
+			<div>
+				<p th:text="学習内容："></p>
+				<p th:each="checked : ${profileForm.study}" th:text="${checked}"></p>
+			</div>
+		</div>
+		<div class="form-group">
+			<p th:text="備考："></p>
+			<th:block th:if="${profileForm.remarks}">
+				<th:block th:each="str, stat : ${profileForm.remarks.split('\r\n|\r|\n', -1)}">
+					<th:block th:text="${str}" />
+					<br th:if="${!stat.last}" />
+				</th:block>
+			</th:block>
 		</div>
 	</body>
 </html>
