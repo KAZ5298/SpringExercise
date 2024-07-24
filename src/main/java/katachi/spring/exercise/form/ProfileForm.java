@@ -14,7 +14,7 @@ public class ProfileForm {
 	
 	private Integer bloodtype;
 	
-	private Integer study;
+	private String[] study;
 	
 	private String remarks;
 	

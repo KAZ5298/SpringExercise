@@ -24,7 +24,6 @@
 			</div>
 		</div>
 		<div class="form-group">
-<!--			<p th:text="血液型： + ${profileForm.bloodtype}"></p>-->
 			<div th:switch="${profileForm.bloodtype}">
 				<p th:case="1" th:text="血液型：Ａ型"></p>
 				<p th:case="2" th:text="血液型：Ｂ型"></p>
@@ -34,7 +33,10 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<p th:text="学習内容： + ${profileForm.study}"></p>
+			<div>
+				<p th:text="学習内容："></p>
+				<p th:each="checked : ${profileForm.study}" th:text="${checked}"></p>
+			</div>
 		</div>
 		<div class="form-group">
 			<p th:text="備考： + ${profileForm.remarks}"></p>
