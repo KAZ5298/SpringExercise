@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -69,8 +70,22 @@ public class HelloController {
 		return "/input";
 	}
 	
+//	@PostMapping("/input")
+//	public String requestProfile(@ModelAttribute ProfileForm profileform, Model model) {
+//		
+//		log.info(profileform.toString());
+//		
+//		return "/profile";
+//	}
+	
+	// EX6.
 	@PostMapping("/input")
-	public String requestProfile(@ModelAttribute ProfileForm profileform, Model model) {
+	public String requestProfile(@ModelAttribute ProfileForm profileform, Model model,
+			BindingResult bindingResult) {
+		
+		if (bindingResult.hasErrors()) {
+			return "redirect:/input";
+		}
 		
 		log.info(profileform.toString());
 		
