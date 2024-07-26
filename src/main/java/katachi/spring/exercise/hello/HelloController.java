@@ -1,5 +1,6 @@
 package katachi.spring.exercise.hello;
 
+import java.util.Locale;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import katachi.spring.exercise.application.service.UserApplicationService;
 import katachi.spring.exercise.form.ProfileForm;
@@ -54,7 +54,7 @@ public class HelloController {
 	private UserApplicationService userApplicationService;
 	
 	@GetMapping("/input")
-	public String getInput(@RequestParam(name = "name", required = false) String str, Model model) {
+	public String getInput(Model model, Locale locale, @ModelAttribute ProfileForm profileform) {
 		
 		Map<String, Integer> genderMap = userApplicationService.getGenderMap();
 		model.addAttribute("genderMap", genderMap);
@@ -64,8 +64,6 @@ public class HelloController {
 		
 		Map<String, String> studyMap = userApplicationService.getStudyMap();
 		model.addAttribute("studyMap", studyMap);
-		
-		model.addAttribute("name", str);
 		
 		return "/input";
 	}

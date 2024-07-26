@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<h1>input.html</h1>
-		<form method="post" action="/input">
+		<form method="post" action="/input" th:object="${profileForm}">
 			<!-- EX2. -->
 <!--			名前の入力欄：<input type="text" name="name" />-->
 			<!-- EX3. -->
@@ -14,22 +14,22 @@
 			<!-- EX5. -->
 			<div class="form-group">
 				<label for="name">名前の入力欄：</label>
-				<input type="text" name="name" th:value="${name}" class="form-check-inline">
+				<input type="text" th:field="*{name}" th:value="${name}" class="form-check-inline">
 			</div>
 			<div class="form-group">
 				<label for="birthday">誕生日：</label>
-				<input type="date" name="birthday" class="form-check-inline"/>
+				<input type="date" th:field="*{birthday}" class="form-check-inline"/>
 			</div>
 			<div class="form-group">
 				<label for="gender">性別：</label>
 				<div th:each="item : ${genderMap}" class="form-check-inline">
-					<input type="radio" name="gender" class="form-check-input" th:value="${item.value}" />
+					<input type="radio" th:field="*{gender}" class="form-check-input" th:value="${item.value}" />
 					<label class="form-check-label" th:text="${item.key}"></label>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="bloodtype">血液型：</label>
-				<select class="dropdown form-check-inline" name="bloodtype">
+				<select class="dropdown form-check-inline" th:field="*{bloodtype}">
 					<option th:value="0"></option>
 					<option th:each="item : ${bloodtypeMap}" th:value="${item.value}" th:text="${item.key}"></option>
 				</select>
@@ -37,12 +37,12 @@
 			<div class="form-group">
 				<label for="study">学習内容：</label>
 				<div th:each="item : ${studyMap}">
-					<input type="checkbox" name="study" th:value="${item.key}" th:text="${item.value}" />
+					<input type="checkbox" th:field="*{study}" th:value="${item.key}" th:text="${item.value}" />
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="remarks">備考：</label>
-				<textarea name="remarks" class="form-check-inline"></textarea>
+				<textarea th:field="*{remarks}" class="form-check-inline"></textarea>
 			</div>
 			<input type="submit" value="送信" />
 		</form>
