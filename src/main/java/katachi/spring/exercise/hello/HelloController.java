@@ -55,7 +55,7 @@ public class HelloController {
 	private UserApplicationService userApplicationService;
 	
 	@GetMapping("/input")
-	public String getInput(Model model, Locale locale, @ModelAttribute ProfileForm profileform) {
+	public String getInput(Model model, @ModelAttribute ProfileForm profileform) {
 		
 		Map<String, Integer> genderMap = userApplicationService.getGenderMap();
 		model.addAttribute("genderMap", genderMap);
@@ -80,10 +80,10 @@ public class HelloController {
 	// EX6.
 	@PostMapping("/input")
 	public String requestProfile(@ModelAttribute @Validated ProfileForm profileform, Model model,
-			Locale locale, BindingResult bindingResult) {
+			BindingResult bindingResult) {
 		
 		if (bindingResult.hasErrors()) {
-			return getInput(model, locale, profileform);
+			return getInput(model, profileform);
 		}
 		
 		log.info(profileform.toString());
