@@ -78,7 +78,7 @@ public class HelloController {
 	
 	// EX6.
 	@PostMapping("/input")
-	public String requestProfile(@ModelAttribute @Validated ProfileForm profileform, Model model,
+	public String requestProfile(Model model, @ModelAttribute @Validated ProfileForm profileform,
 			BindingResult bindingResult) {
 		
 		if (bindingResult.hasErrors()) {

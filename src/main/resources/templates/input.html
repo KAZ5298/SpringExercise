@@ -40,7 +40,7 @@
 					<input type="radio" th:field="*{gender}" class="form-check-input" th:value="${item.value}" th:errorclass="is-invalid">
 					<label class="form-check-label" th:text="${item.key}"></label>
 				</div>
-				<div class="invalid-feedback" th:errors="*{gender}"></div>
+				<div class="text-danger" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></div>
 			</div>
 			
 			<!-- 血液型 -->
@@ -59,7 +59,8 @@
 				<div th:each="item : ${studyMap}" class="form-check-inline">
 					<input type="checkbox" th:field="*{study}" th:value="${item.key}" th:text="${item.value}" th:errorclass="is-invalid">
 				</div>
-				<div class="invalid-feedback" th:errors="*{study}"></div>
+<!--				<div class="invalid-feedback" th:errors="*{study}"></div>-->
+				<div class="text-danger" th:if="${#fields.hasErrors('study')}" th:errors="*{study}"></div>
 			</div>
 			
 			<!-- 備考 -->

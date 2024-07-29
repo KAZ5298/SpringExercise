@@ -2,7 +2,6 @@ package katachi.spring.exercise.form;
 
 import java.util.Date;
 
-import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -25,10 +24,11 @@ public class ProfileForm {
 	
 	private Integer bloodtype;
 	
+//	@AssertTrue
 	private String[] study;
 	
 	@NotBlank
-	@Max(100)
+//	@Max(100)
 	private String remarks;
 	
 }
