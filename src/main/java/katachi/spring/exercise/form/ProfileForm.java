@@ -5,6 +5,7 @@ import java.util.Date;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -29,7 +30,7 @@ public class ProfileForm {
 	private String[] study;
 	
 	@NotBlank
-//	@Max(100)
+	@Size(max = 100)
 	private String remarks;
 	
 }
