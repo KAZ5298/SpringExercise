@@ -1,6 +1,5 @@
 package katachi.spring.exercise.hello;
 
-import java.util.Locale;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;

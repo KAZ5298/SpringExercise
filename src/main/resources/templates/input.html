@@ -19,41 +19,52 @@
 			<!-- EX3. -->
 <!--			名前の入力欄：<input type="text" name="name" th:value="${name}"/>-->
 			<!-- EX5. -->
+			<!-- 名前 -->
 			<div class="form-group">
-				<label for="name">名前の入力欄</label>
+				<label for="name" th:text="#{name}"></label>
 				<input type="text" th:field="*{name}" th:value="${name}" class="form-control" th:errorclass="is-invalid">
 				<div class="invalid-feedback" th:errors="*{name}"></div>
 			</div>
+			
+			<!-- 誕生日 -->
 			<div class="form-group">
-				<label for="birthday">誕生日</label>
+				<label for="birthday" th:text="#{birthday}"></label>
 				<input type="date" th:field="*{birthday}" class="form-control" th:errorclass="is-invalid">
 				<div class="invalid-feedback" th:errors="*{birthday}"></div>
 			</div>
+			
+			<!-- 性別 -->
 			<div class="form-group">
-				<label for="gender">性別</label>
+				<label for="gender" th:text="#{gender}"></label>
 				<div th:each="item : ${genderMap}" class="form-check-inline">
 					<input type="radio" th:field="*{gender}" class="form-check-input" th:value="${item.value}" th:errorclass="is-invalid">
 					<label class="form-check-label" th:text="${item.key}"></label>
 				</div>
 				<div class="invalid-feedback" th:errors="*{gender}"></div>
 			</div>
+			
+			<!-- 血液型 -->
 			<div class="form-group">
-				<label for="bloodtype">血液型</label>
+				<label for="bloodtype" th:text="#{bloodtype}"></label>
 				<select class="dropdown form-control" th:field="*{bloodtype}" th:errorclass="is-invalid">
 					<option th:value="0"></option>
 					<option th:each="item : ${bloodtypeMap}" th:value="${item.value}" th:text="${item.key}"></option>
 				</select>
 				<div class="invalid-feedback" th:errors="*{bloodtype}"></div>
 			</div>
+			
+			<!-- 学習内容 -->
 			<div class="form-group">
-				<label for="study">学習内容</label>
+				<label for="study" th:text="#{study}"></label>
 				<div th:each="item : ${studyMap}" class="form-check-inline">
 					<input type="checkbox" th:field="*{study}" th:value="${item.key}" th:text="${item.value}" th:errorclass="is-invalid">
 				</div>
 				<div class="invalid-feedback" th:errors="*{study}"></div>
 			</div>
+			
+			<!-- 備考 -->
 			<div class="form-group">
-				<label for="remarks">備考</label>
+				<label for="remarks" th:text="#{remarks}"></label>
 				<textarea th:field="*{remarks}" class="form-control" th:errorclass="is-invalid"></textarea>
 				<div class="invalid-feedback" th:errors="*{remarks}"></div>
 			</div>
