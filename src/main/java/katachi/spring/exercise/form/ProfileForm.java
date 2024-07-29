@@ -4,6 +4,7 @@ import java.util.Date;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -24,7 +25,7 @@ public class ProfileForm {
 	
 	private Integer bloodtype;
 	
-//	@AssertTrue
+	@NotEmpty
 	private String[] study;
 	
 	@NotBlank
