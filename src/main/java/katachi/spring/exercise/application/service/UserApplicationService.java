@@ -40,4 +40,14 @@ public class UserApplicationService {
 		return studyMap;
 	}
 	
+	// EX9. ユーザ登録
+	// チーム名
+	public Map<String, Integer> getTeamMap() {
+		Map<String, Integer> teamMap = new LinkedHashMap<>();
+		teamMap.put("チームＡ", 1);
+		teamMap.put("チームＢ", 2);
+		teamMap.put("チームＣ", 3);
+		teamMap.put("チームＤ", 4);
+		return teamMap;
+	}
 }

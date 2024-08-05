@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- CSS -->
+		<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+		<link rel="stylesheet" th:href="@{/css/add.css}">
+		<!-- JS -->
+		<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+		<title>add.html</title>
+	</head>
+	<body>
+		<!-- EX9. ユーザ登録 -->
+		<h1>add.html</h1>
+		<form method="post" action="/user/add" class="form-add-user">
+			<div class="form-group">
+				<label for="teamName" th:text="#{teamName}"></label>
+				<select class="dropdown form-control">
+					<option th:value="0"></option>
+					<option th:each="item : ${teamMap}" th:value="${item.value}" th:text="${item.key}"></option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="userName" th:text="#{userName}"></label>
+				<input type="text" th:value="${userName}" class="form-control">
+			</div>
+		</form>
+	</body>
+</html>

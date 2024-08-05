@@ -19,11 +19,6 @@
 	
 	<select id="findMany" resultMap="user">
 		select
-<!--			*-->
-<!--			users.id,-->
-<!--			users.team_id,-->
-<!--			users.name,-->
-<!--			teams.name-->
 			users.id,
 			users.name,
 			teams.name as team_name
