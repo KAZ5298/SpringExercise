@@ -4,7 +4,8 @@ import lombok.Data;
 
 @Data
 public class User {
-	private Integer id;
+	private Integer userId;
 	private Integer teamId;
-	private String name;
+	private String userName;
+	private Team teamName;
 }
