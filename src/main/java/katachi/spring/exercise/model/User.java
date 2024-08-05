@@ -6,5 +6,5 @@ import lombok.Data;
 public class User {
 	private Integer id;
 	private Integer teamId;
-	private String userName;
+	private String name;
 }
