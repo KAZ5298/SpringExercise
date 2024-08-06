@@ -37,6 +37,14 @@
 			#{teamId},
 			#{name}
 		)
+		where not exists (
+			select
+				1
+			from
+				users
+			where
+				name = #{name}
+		)
 	</insert>
 
 </mapper>
