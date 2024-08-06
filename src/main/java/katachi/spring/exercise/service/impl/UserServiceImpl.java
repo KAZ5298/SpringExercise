@@ -18,4 +18,10 @@ public class UserServiceImpl implements UserService {
 	public List<User> getUsers() {
 		return mapper.findMany();
 	}
+	
+	// EX9. ユーザ登録
+	@Override
+	public void signup(User user) {
+		mapper.insertOne(user);
+	}
 }

@@ -8,4 +8,7 @@ public interface UserService {
 	
 	/** ユーザー一覧取得 */
 	public List<User> getUsers();
+
+	// EX9. ユーザ登録
+	public void signup(User user);
 }

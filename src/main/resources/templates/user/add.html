@@ -13,18 +13,21 @@
 	<body>
 		<!-- EX9. ユーザ登録 -->
 		<h1>add.html</h1>
-		<form method="post" action="/user/add" class="form-add-user">
+		<form method="post" action="/user/add" th:object="${userForm}" class="form-add-user">
 			<div class="form-group">
 				<label for="teamName" th:text="#{teamName}"></label>
-				<select class="dropdown form-control">
+				<select class="dropdown form-control" th:field="*{teamId}" th:errorclass="is-invalid">
 					<option th:value="0"></option>
 					<option th:each="item : ${teamMap}" th:value="${item.value}" th:text="${item.key}"></option>
 				</select>
+				<div class="invalid-feedback" th:errors="*{teamId}"></div>
 			</div>
 			<div class="form-group">
 				<label for="userName" th:text="#{userName}"></label>
-				<input type="text" th:value="${userName}" class="form-control">
+				<input type="text" th:field="*{name}" th:value="${name}" class="form-control" th:errorclass="is-invalid">
+				<div class="invalid-feedback" th:errors="*{name}"></div>
 			</div>
+			<input type="submit" value="送信" class="btn btn-primary"/>
 		</form>
 	</body>
 </html>

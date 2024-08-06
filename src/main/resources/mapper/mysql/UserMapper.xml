@@ -27,5 +27,16 @@
 		left join teams
 			on users.team_id = teams.id;
 	</select>
+	
+	<!-- EX9. ユーザ登録 -->
+	<insert id="insertOne">
+		insert into users(
+			team_id,
+			name
+		) VALUES (
+			#{teamId},
+			#{name}
+		)
+	</insert>
 
 </mapper>
