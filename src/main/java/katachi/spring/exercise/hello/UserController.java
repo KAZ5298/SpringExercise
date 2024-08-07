@@ -67,7 +67,8 @@ public class UserController {
 		
 		log.info(userForm.toString());
 		
-		if (userService.getUserOne(userForm.getName()) == null) {
+		
+		if (userService.getUserOne(userForm.getName()) != null) {
 		
 			User user = modelMapper.map(userForm, User.class);
 			
@@ -81,6 +82,11 @@ public class UserController {
 			bindingResult.rejectValue("name", "validation.user-already-registered");
 			return getAddUser(model, userForm);
 		}
+		
+//		if (userService.getUserOne(userForm.getName()) != null) {
+//			bindingResult.rejectValue("name", "validation.user-already-registered");
+//			return getAddUser(model, userForm);
+//		}
 		
 		return getUserList(model);
 	}
