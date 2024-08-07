@@ -29,22 +29,25 @@
 	</select>
 	
 	<!-- EX9. ユーザ登録 -->
+	<!-- 登録処理 -->
 	<insert id="insertOne">
-		insert into users(
+		insert into users (
 			team_id,
 			name
 		) VALUES (
 			#{teamId},
 			#{name}
 		)
-		where not exists (
-			select
-				1
-			from
-				users
-			where
-				name = #{name}
-		)
 	</insert>
+	
+	<!-- 存在チェック -->
+	<select id="findOne" resultMap="user">
+		select
+			1
+		from
+			users
+		where
+			name = #{name}
+	</select>
 
 </mapper>

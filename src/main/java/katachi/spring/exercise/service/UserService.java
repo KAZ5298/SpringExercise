@@ -11,4 +11,6 @@ public interface UserService {
 
 	// EX9. ユーザ登録
 	public void signup(User user);
+	
+	public User getUserOne(String name);
 }

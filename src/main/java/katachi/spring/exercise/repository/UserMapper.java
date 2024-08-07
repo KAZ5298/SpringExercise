@@ -12,4 +12,6 @@ public interface UserMapper {
 	
 	// EX9. ユーザ登録
 	public int insertOne(User user);
+
+	public User findOne(String name);
 }
