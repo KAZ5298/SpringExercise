@@ -29,4 +29,10 @@ public class UserServiceImpl implements UserService {
 	public Integer getUserOne(String name) {
 		return mapper.findOne(name);
 	}
+	
+	// EX10. ユーザ削除
+	@Override
+	public void deleteUserOne(Integer id) {
+		int count = mapper.deleteOne(id);
+	}
 }

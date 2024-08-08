@@ -13,4 +13,7 @@ public interface UserService {
 	public void signup(User user);
 	
 	public Integer getUserOne(String name);
+	
+	// EX10. ユーザ削除
+	public void deleteUserOne(Integer id);
 }

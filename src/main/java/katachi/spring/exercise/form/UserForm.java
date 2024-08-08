@@ -8,6 +8,8 @@ import lombok.Data;
 @Data
 public class UserForm {
 	
+	private Integer id;
+	
 	@Positive
 	private Integer teamId;
 	

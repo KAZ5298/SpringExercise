@@ -14,6 +14,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import katachi.spring.exercise.application.service.UserApplicationService;
@@ -83,6 +84,16 @@ public class UserController {
 		}
 		
 		return getUserList(model);
+	}
+	
+	// EX10. ユーザ削除
+	@GetMapping(value = "/user/delete/{id}")
+	public String deleteUser(UserForm userForm, Model model,
+			@PathVariable("id") Integer id) {
+		
+		userService.deleteUserOne(userForm.getId());
+		
+		return "redirect:/user";
 	}
 	
 	@ExceptionHandler(DataAccessException.class)

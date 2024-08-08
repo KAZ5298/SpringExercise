@@ -50,5 +50,13 @@
 			name = #{name}
 		limit 1
 	</select>
+	
+	<!-- EX10. ユーザ削除 -->
+	<delete id="deleteOne">
+		delete from
+			users
+		where
+			id = #{id}
+	</delete>
 
 </mapper>

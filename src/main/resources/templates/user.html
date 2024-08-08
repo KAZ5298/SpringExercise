@@ -19,6 +19,8 @@
 						<th class="th-width">ユーザID</th>
 						<th class="th-width">名前</th>
 						<th class="th-width">所属チーム名</th>
+						<!-- EX10. ユーザ削除 -->
+						<th class="th-width">操作</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -26,6 +28,12 @@
 						<td th:text="${item.id}"></td>
 						<td th:text="${item.name}"></td>
 						<td th:text="${item.team.name}"></td>
+						<!-- EX10. ユーザ削除 -->
+						<td>
+							<a class="btn btn-primary" th:href="@{'/user/delete/' + ${item.id}}">
+								削除
+							</a>
+						</td>
 					</tr>
 				</tbody>
 			</table>
