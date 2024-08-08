@@ -41,7 +41,7 @@
 	</insert>
 	
 	<!-- 存在チェック -->
-	<select id="findOne" resultMap="user">
+	<select id="findOne" resultType="Integer">
 		select
 			1
 		from

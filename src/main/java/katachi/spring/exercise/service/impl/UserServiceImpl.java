@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public User getUserOne(String name) {
+	public Integer getUserOne(String name) {
 		return mapper.findOne(name);
 	}
 }
