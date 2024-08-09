@@ -16,7 +16,7 @@
 		<form method="post" action="/user/add" th:object="${userForm}" class="form-add-user">
 			<div class="form-group">
 				<label for="teamName" th:text="#{teamName}"></label>
-				<select class="dropdown form-control" th:field="*{teamId}" th:errorclass="is-invalid">
+				<select class="dropdown form-select" th:field="*{teamId}" th:errorclass="is-invalid">
 					<option th:value="0"></option>
 					<option th:each="item : ${teamMap}" th:value="${item.value}" th:text="${item.key}"></option>
 				</select>

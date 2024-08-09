@@ -84,7 +84,7 @@ public class UserController {
 			return getAddUser(model, userForm);
 		}
 		
-		return getUserList(model);
+		return "redirect:/user";
 	}
 	
 	// EX10. ユーザ削除
