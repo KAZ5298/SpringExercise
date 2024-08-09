@@ -31,6 +31,13 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	// EX9. ユーザ登録
+	@Autowired
+	private UserApplicationService userApplicationService;
+	
+	@Autowired
+	private ModelMapper modelMapper;
+	
 	@GetMapping("/user")
 	public String getUserList(Model model) {
 		List<User> userList = userService.getUsers();
@@ -43,12 +50,6 @@ public class UserController {
 	}
 	
 	// EX9. ユーザ登録
-	@Autowired
-	private UserApplicationService userApplicationService;
-	
-	@Autowired
-	private ModelMapper modelMapper;
-	
 	@GetMapping("/user/add")
 	public String getAddUser(Model model, @ModelAttribute UserForm userForm) {
 		
