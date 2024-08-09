@@ -18,7 +18,7 @@
 				<label for="teamName" th:text="#{teamName}"></label>
 				<select class="dropdown form-select" th:field="*{teamId}" th:errorclass="is-invalid">
 					<option th:value="0"></option>
-					<option th:each="item : ${teamMap}" th:value="${item.value}" th:text="${item.key}"></option>
+					<option th:each="item : ${teamList}" th:value="${item.id}" th:text="${item.name}"></option>
 				</select>
 				<div class="invalid-feedback" th:errors="*{teamId}"></div>
 			</div>

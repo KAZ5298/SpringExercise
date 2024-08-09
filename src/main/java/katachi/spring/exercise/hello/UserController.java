@@ -1,7 +1,6 @@
 package katachi.spring.exercise.hello;
 
 import java.util.List;
-import java.util.Map;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +16,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import katachi.spring.exercise.application.service.UserApplicationService;
 import katachi.spring.exercise.form.UserForm;
+import katachi.spring.exercise.model.Team;
 import katachi.spring.exercise.model.User;
+import katachi.spring.exercise.service.TeamService;
 import katachi.spring.exercise.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -33,10 +33,10 @@ public class UserController {
 	
 	// EX9. ユーザ登録
 	@Autowired
-	private UserApplicationService userApplicationService;
+	private ModelMapper modelMapper;
 	
 	@Autowired
-	private ModelMapper modelMapper;
+	private TeamService teamService;
 	
 	@GetMapping("/user/user")
 	public String getUserList(Model model) {
@@ -53,8 +53,9 @@ public class UserController {
 	@GetMapping("/user/add")
 	public String getAddUser(Model model, @ModelAttribute UserForm userForm) {
 		
-		Map<String, Integer> teamMap = userApplicationService.getTeamMap();
-		model.addAttribute("teamMap", teamMap);
+		List<Team> teamList = teamService.getTeams();
+		
+		model.addAttribute(teamList);
 		
 		return "/user/add";
 	}
