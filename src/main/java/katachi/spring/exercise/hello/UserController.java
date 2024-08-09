@@ -38,7 +38,7 @@ public class UserController {
 	@Autowired
 	private ModelMapper modelMapper;
 	
-	@GetMapping("/user")
+	@GetMapping("/user/user")
 	public String getUserList(Model model) {
 		List<User> userList = userService.getUsers();
 		
@@ -46,7 +46,7 @@ public class UserController {
 		
 		log.info(userList.toString());
 		
-		return "/user";
+		return "/user/user";
 	}
 	
 	// EX9. ユーザ登録
@@ -84,7 +84,7 @@ public class UserController {
 			return getAddUser(model, userForm);
 		}
 		
-		return "redirect:/user";
+		return "redirect:/user/user";
 	}
 	
 	// EX10. ユーザ削除
@@ -94,7 +94,7 @@ public class UserController {
 		
 		userService.deleteUserOne(userForm.getId());
 		
-		return "redirect:/user";
+		return "redirect:/user/user";
 	}
 	
 	@ExceptionHandler(DataAccessException.class)
